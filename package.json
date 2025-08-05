@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Kiran",
-    "url": "https://github.com/Kiranism"
+    "name": "imalzy",
+    "url": "https://github.com/imalzy"
   },
+  "description": "This project is a customized implementation of a dressmaking business admin dashboard, originally cloned from @Kiranism's repository (https://github.com/Kiranism). The system is built for internal use only.",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
