@@ -24,3 +24,14 @@ export function formatBytes(
       : (sizes[i] ?? 'Bytes')
   }`;
 }
+
+// lib/utils.ts
+export function getAbsoluteUrl(path: string) {
+  const base =
+    process.env.NEXT_PUBLIC_BASE_URL || // e.g. https://jahitin.com
+    (typeof window !== 'undefined'
+      ? window.location.origin
+      : 'http://localhost:3000');
+
+  return `${base}${path}`;
+}
