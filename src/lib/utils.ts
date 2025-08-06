@@ -28,7 +28,7 @@ export function formatBytes(
 // lib/utils.ts
 export function getAbsoluteUrl(path: string) {
   const base =
-    process.env.NEXT_PUBLIC_BASE_URL || // e.g. https://jahitin.com
+    process.env.NEXT_PUBLIC_BASE_URL || // e.g. https://Jahitku.com
     (typeof window !== 'undefined'
       ? window.location.origin
       : 'http://localhost:3000');

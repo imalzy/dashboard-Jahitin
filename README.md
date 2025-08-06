@@ -1,6 +1,6 @@
-# 👗 Jahitin – Admin Dashboard for Dress Tailor Business
+# 👗 Jahitku – Admin Dashboard for Dress Tailor Business
 
-**Jahitin** adalah aplikasi dashboard internal yang membantu pengusaha jasa jahit dress mengelola data pelanggan, menyimpan ukuran tubuh, mencatat pesanan, dan memantau progres jahitan dari awal hingga selesai.
+**Jahitku** adalah aplikasi dashboard internal yang membantu pengusaha jasa jahit dress mengelola data pelanggan, menyimpan ukuran tubuh, mencatat pesanan, dan memantau progres jahitan dari awal hingga selesai.
 
 > Dibuat khusus untuk tailor shop yang ingin bertransformasi ke sistem digital tanpa membuat pelanggan repot login atau input ukuran sendiri.
 
@@ -21,7 +21,7 @@
 
 ### ✅ Pelacakan Pesanan (Public Tracking)
 - Halaman publik tanpa login
-- Pelanggan cukup input nomor pesanan untuk melihat status (contoh: `jahitin.com/lacak/DRS-20250805-001`)
+- Pelanggan cukup input nomor pesanan untuk melihat status (contoh: `Jahitku.com/lacak/DRS-20250805-001`)
 
 ### ✅ Status Produksi
 - Atur status pesanan: Masuk → Dalam Proses → Siap Fitting → Selesai
@@ -49,8 +49,8 @@
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/namakamu/jahitin.git
-cd jahitin
+git clone https://github.com/namakamu/Jahitku.git
+cd Jahitku
 
 # 2. Install dependencies
 npm install
