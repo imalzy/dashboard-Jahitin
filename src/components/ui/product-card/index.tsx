@@ -72,7 +72,7 @@ const ProductGrid = () => {
                     alt={product.name}
                     className='h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105'
                   />
-                  <Badge className='bg-primary text-primary-foreground absolute top-3 left-3'>
+                  <Badge className='text-amber-800-foreground absolute top-3 left-3 bg-amber-800 text-white'>
                     {product.badge}
                   </Badge>
                 </div>
@@ -86,7 +86,7 @@ const ProductGrid = () => {
 
                   <div className='mb-2 flex items-center gap-2'>
                     <div className='flex items-center gap-1'>
-                      <Star className='text-primary h-4 w-4 fill-current' />
+                      <Star className='h-4 w-4 fill-current text-amber-800' />
                       <span className='text-sm font-medium'>
                         {product.rating}
                       </span>
@@ -97,7 +97,7 @@ const ProductGrid = () => {
                   </div>
 
                   <div className='flex items-center gap-2'>
-                    <span className='text-primary text-lg font-bold'>
+                    <span className='text-lg font-bold text-amber-800'>
                       {product.price}
                     </span>
                     {product.originalPrice && (
@@ -109,7 +109,7 @@ const ProductGrid = () => {
                 </div>
 
                 <Button
-                  className='bg-primary hover:bg-primary/90 w-full'
+                  className='w-full bg-amber-800 hover:bg-amber-800/90'
                   size='sm'
                 >
                   <ShoppingCart className='mr-2 h-4 w-4' />
@@ -124,7 +124,7 @@ const ProductGrid = () => {
           <Button
             variant='outline'
             size='lg'
-            className='border-primary text-primary hover:bg-primary hover:text-primary-foreground'
+            className='hover:text-amber-800-foreground border-amber-800 text-amber-800 hover:bg-amber-800'
           >
             View All Products
           </Button>
