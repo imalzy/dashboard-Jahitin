@@ -14,10 +14,40 @@ datasource db {
 }
 
 model Customer {
-  id        String   @id @default(uuid())
+  id        String     @id @default(uuid())
   name      String
   phone     String
   address   String?
   notes     String?
+  createdAt DateTime   @default(now())
+  SizeBook  SizeBook[]
+}
+
+model SizeBook {
+  id         String @id @default(uuid())
+  customerId String
+
+  // Optional sketch/image URL
+  sketchUrl String? // formerly sketsaUrl
+
+  // Body Measurements (in centimeters, typically)
+  bustCircumference    Float? // Lingkar Badan
+  waistCircumference   Float? // Lingkar Pinggang
+  hipCircumference     Float? // Lingkar Panggul
+  backLength           Float? // Panjang Punggung
+  backWidth            Float? // Lebar Punggung
+  frontLength          Float? // Panjang Muka
+  frontWidth           Float? // Lebar Muka
+  shoulderLength       Float? // Panjang Bahu
+  sleeveLength         Float? // Panjang Lengan
+  armholeCircumference Float? // Lingkar Kerung Lengan
+  armCircumference     Float? // Besar Lengan
+  dressLength          Float? // Panjang Baju
+  hipHeight            Float? // Tinggi Panggul
+  sideLength           Float? // Panjang Sisi
+
   createdAt DateTime @default(now())
+
+  // Optional relation to Customer model
+  customer Customer @relation(fields: [customerId], references: [id])
 }
