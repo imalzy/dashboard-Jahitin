@@ -3,6 +3,7 @@ import { CustomerTable } from './customer-tables';
 import { columns } from './customer-tables/columns';
 import { ICustomer } from '@/types/customer';
 import { clientOfPrisma } from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
 
 type CustomerListingPage = {};
 
@@ -17,7 +18,8 @@ export default async function CustomerListingPage({}: CustomerListingPage) {
     const skip = (page - 1) * pageLimit;
 
     // Build search filter if needed
-    const where = search
+    // Build search filter
+    const where: Prisma.CustomerWhereInput = search
       ? {
           OR: [
             { name: { contains: search, mode: 'insensitive' } },
@@ -26,7 +28,7 @@ export default async function CustomerListingPage({}: CustomerListingPage) {
         }
       : {};
 
-    // Fetch data directly from the database
+    // Fetch customers & total count in parallel
     const [customers, totalCustomers] = await Promise.all([
       clientOfPrisma.customer.findMany({
         skip,
@@ -41,7 +43,7 @@ export default async function CustomerListingPage({}: CustomerListingPage) {
       <CustomerTable
         data={customers}
         totalItems={totalCustomers}
-        columns={columns}
+        columns={columns as any}
       />
     );
   } catch (error) {
