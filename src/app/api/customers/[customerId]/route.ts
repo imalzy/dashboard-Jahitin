@@ -8,7 +8,10 @@ interface RouteParams {
 }
 
 // GET single customer
-export async function GET(req: NextRequest, { params }: RouteParams) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { customerId: string } }
+) {
   const customerId = params.customerId;
 
   try {
@@ -25,6 +28,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
     return NextResponse.json(customer);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching customer:', error);
     return NextResponse.json(
       { error: 'Failed to fetch customer' },
@@ -34,7 +38,10 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 }
 
 // UPDATE customer
-export async function PUT(req: NextRequest, { params }: RouteParams) {
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { customerId: string } }
+) {
   const customerId = params.customerId;
 
   try {
@@ -74,7 +81,10 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
 }
 
 // DELETE customer
-export async function DELETE(req: NextRequest, { params }: RouteParams) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { customerId: string } }
+) {
   const customerId = params.customerId;
 
   try {
