@@ -4,6 +4,7 @@ import { columns } from './customer-tables/columns';
 import { ICustomer } from '@/types/customer';
 import { clientOfPrisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
+import { ColumnDef } from '@tanstack/react-table';
 
 type CustomerListingPage = {};
 
