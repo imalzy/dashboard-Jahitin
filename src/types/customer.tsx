@@ -4,4 +4,5 @@ export interface ICustomer {
   phone: string;
   notes?: string;
   address?: string;
+  createdAt?: Date | string;
 }

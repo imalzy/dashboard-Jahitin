@@ -1,15 +1,10 @@
 import { clientOfPrisma } from '@/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 
-interface RouteParams {
-  params: {
-    customerId: string;
-  };
-}
-
 // GET single customer
-export async function GET(req: NextRequest, { params }: RouteParams) {
-  const customerId = params.customerId;
+export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
+  const customerId = url.pathname.split('/').at(-1); // last segment
 
   try {
     const customer = await clientOfPrisma.customer.findUnique({
@@ -25,6 +20,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
     return NextResponse.json(customer);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching customer:', error);
     return NextResponse.json(
       { error: 'Failed to fetch customer' },
@@ -34,8 +30,9 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 }
 
 // UPDATE customer
-export async function PUT(req: NextRequest, { params }: RouteParams) {
-  const customerId = params.customerId;
+export async function PUT(req: NextRequest) {
+  const url = new URL(req.url);
+  const customerId = url.pathname.split('/').at(-1); // last segment
 
   try {
     const body = await req.json();
@@ -74,8 +71,9 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
 }
 
 // DELETE customer
-export async function DELETE(req: NextRequest, { params }: RouteParams) {
-  const customerId = params.customerId;
+export async function DELETE(req: NextRequest) {
+  const url = new URL(req.url);
+  const customerId = url.pathname.split('/').at(-1); // last segment
 
   try {
     // Check if customer exists

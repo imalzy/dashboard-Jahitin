@@ -28,5 +28,5 @@ export default async function CustomerViewPage({
     }
   }
 
-  return <CustomerForm initialData={customer} pageTitle={pageTitle} />;
+  return <CustomerForm initialData={customer as any} pageTitle={pageTitle} />;
 }
