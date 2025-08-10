@@ -10,9 +10,9 @@ interface RouteParams {
 // GET single customer
 export async function GET(
   req: NextRequest,
-  { params }: { params: { customerId: string } }
+  context: { params: { customerId: string } }
 ) {
-  const customerId = params.customerId;
+  const { customerId } = context.params;
 
   try {
     const customer = await clientOfPrisma.customer.findUnique({
@@ -40,9 +40,9 @@ export async function GET(
 // UPDATE customer
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { customerId: string } }
+  context: { params: { customerId: string } }
 ) {
-  const customerId = params.customerId;
+  const { customerId } = context.params;
 
   try {
     const body = await req.json();
@@ -83,9 +83,9 @@ export async function PUT(
 // DELETE customer
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { customerId: string } }
+  context: { params: { customerId: string } }
 ) {
-  const customerId = params.customerId;
+  const { customerId } = context.params;
 
   try {
     // Check if customer exists
