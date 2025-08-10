@@ -1,18 +1,10 @@
 import { clientOfPrisma } from '@/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 
-interface RouteParams {
-  params: {
-    customerId: string;
-  };
-}
-
 // GET single customer
-export async function GET(
-  req: NextRequest,
-  context: { params: { customerId: string } }
-) {
-  const { customerId } = context.params;
+export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
+  const customerId = url.pathname.split('/').at(-1); // last segment
 
   try {
     const customer = await clientOfPrisma.customer.findUnique({
@@ -38,11 +30,9 @@ export async function GET(
 }
 
 // UPDATE customer
-export async function PUT(
-  req: NextRequest,
-  context: { params: { customerId: string } }
-) {
-  const { customerId } = context.params;
+export async function PUT(req: NextRequest) {
+  const url = new URL(req.url);
+  const customerId = url.pathname.split('/').at(-1); // last segment
 
   try {
     const body = await req.json();
@@ -81,11 +71,9 @@ export async function PUT(
 }
 
 // DELETE customer
-export async function DELETE(
-  req: NextRequest,
-  context: { params: { customerId: string } }
-) {
-  const { customerId } = context.params;
+export async function DELETE(req: NextRequest) {
+  const url = new URL(req.url);
+  const customerId = url.pathname.split('/').at(-1); // last segment
 
   try {
     // Check if customer exists
